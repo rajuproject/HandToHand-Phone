@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Modal from '../Modal/Modal';
 
 
 
@@ -11,6 +12,8 @@ const Iphone = () => {
     const router = useParams();
     const { id } = router;
     const [iphones, setIphones] = useState([])
+
+    const [details, setDetails] = useState([])
 
 
 
@@ -55,7 +58,9 @@ const Iphone = () => {
                                             <h2 className="card-title">Post Time: {iphone.time}</h2>
                                             <p></p>
                                             <div className="card-actions mx-auto">
-                                                <button className="btn btn-primary">Buy Now</button>
+                                                
+                                                <label htmlFor="booking-modal"className="btn btn-primary" onClick={()=>setDetails(iphone)}>Book Now</label>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -66,6 +71,10 @@ const Iphone = () => {
                 </div>
             </div>
         </div>
+        <Modal
+        details ={details}
+        
+        ></Modal>
         </div>
     );
 };

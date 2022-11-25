@@ -7,6 +7,9 @@ import Signup from '../Pages/Login/Signup'
 import Main from '../Layout/Main'
 import Catagories from '../Catagories/Catagories'
 import Iphone from '../Iphone/Iphone'
+import Modal from '../Modal/Modal'
+
+import PrivateRoute from '../Routes/PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: '/iphone/:id',
         element: <Iphone></Iphone>,
+      },
+      {
+        path: '/bookings',
+        element: <PrivateRoute><Modal></Modal></PrivateRoute>,
       },
       {
         path: '/login',
