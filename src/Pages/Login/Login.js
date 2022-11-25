@@ -27,7 +27,7 @@ const Login = () => {
     .then(result =>{
       
       toast.success('Log in successfully..')
-      setAuthToken(result.user)
+     
       navigate(from, {replace: true})
 
     }).catch(err => {
@@ -42,7 +42,10 @@ const Login = () => {
   const handleGoogleSingIn = () =>{
     signInWithGoogle()
     .then(result =>{
-      setAuthToken(result.user)
+      const user = result.user
+      const option = 'buyer'
+      allUsers(user.email, user.displayName, option)
+      
       console.log(result)
     })
   }
@@ -51,7 +54,9 @@ const Login = () => {
   const githubSubmit = () => {
     gitHubSignIn().then(result => {
       console.log(result.user)
-      setAuthToken(result.user)
+      const user = result.user
+      const option = 'buyer'
+      allUsers(user.email, user.displayName, option)
       const user1 = result.user
       if (user1) {
         toast.success('log in succesfully');
@@ -64,7 +69,24 @@ const Login = () => {
       .catch(error => console.log(error))
   }
 
+  const allUsers = (email, name , option) => {
+    const users = {email, name, option}
 
+    console.log(users)
+
+    fetch('http://localhost:5000/allusers', {
+      method:'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(users)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data)
+      navigate(from, { replace: true })
+    })
+  }
 
 
   return (

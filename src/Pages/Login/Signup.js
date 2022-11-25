@@ -10,7 +10,7 @@ import { setAuthToken } from '../../Api/auth'
 
 const Signup = () => {
 
-  const { createUser, updateUserProfile, loading, setLoading,signInWithGoogle, gitHubSignIn } = useContext(AuthContext)
+  const { createUser, updateUserProfile, loading, setLoading, signInWithGoogle, gitHubSignIn } = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathName || '/'
@@ -18,53 +18,74 @@ const Signup = () => {
   const handleSubmit = event => {
     event.preventDefault()
     const name = event.target.name.value
-    const image = event.target.image.files[0]
+    // const image = event.target.image.files[0]
     const email = event.target.email.value
     const password = event.target.email.value
+    const option = event.target.option.value
 
-    const formData = new FormData()
-    formData.append('image', image)
 
-    
+    // const userInfo = {
+    //   email, name, option
+    // }
 
-    const url = 'https://api.imgbb.com/1/upload?key=fcaa363a66659c0649b28f9ea77e9867'
+    // console.log(userInfo)
 
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(res => res.json())
-      .then(data => {
+    // const formData = new FormData()
+    // formData.append('image', image)
+
+
+
+    // const url = 'https://api.imgbb.com/1/upload?key=fcaa363a66659c0649b28f9ea77e9867'
+
+    // fetch(url, {
+    //   method: 'POST',
+    //   body: formData,
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
 
     createUser(email, password)
       .then(result => {
-        setAuthToken(result.user)
-        updateUserProfile(name, data.data.display_url)
-        .then(data =>{
-          console.log(data)
-          toast.success('Successfully create user...!')
-          navigate(from, {replace: true})
-        })
+        // setAuthToken(result.user)
+        console.log(result.user)
+        updateUserProfile(name)
+          .then(() => {
+
+            
+
+            toast.success('Successfully create user...!')
+            
+            allUsers(email, name, option)
+            navigate('/')
+          })
       })
       .catch(err => console.log(err))
+      // .catch(err => console.log(err))
+      // })
       .catch(err => console.log(err))
-    })
-    .catch(err =>console.log(err))
   }
 
-  const handleGoogleSingIn = () =>{
+
+
+  const handleGoogleSingIn = () => {
     signInWithGoogle()
-    .then(result =>{
-      setAuthToken(result.user)
-      console.log(result)
-      navigate(from, {replace: true})
-    })
+      .then(result => {
+        
+
+        const user = result.user
+        const option = 'buyer'
+        allUsers(user.email, user.displayName, option)
+        console.log(result)
+        navigate(from, { replace: true })
+      })
   }
 
   const githubSubmit = () => {
     gitHubSignIn().then(result => {
       console.log(result.user)
-      setAuthToken(result.user)
+      const user = result.user
+      const option = 'buyer'
+      allUsers(user.email, user.displayName, option)
       const user1 = result.user
       if (user1) {
         toast.success('log in succesfully');
@@ -75,6 +96,26 @@ const Signup = () => {
       navigate(from, { replace: true })
     })
       .catch(error => console.log(error))
+  }
+
+
+  const allUsers = (email, name , option) => {
+    const users = {email, name, option}
+
+    console.log(users)
+
+    fetch('http://localhost:5000/allusers', {
+      method:'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(users)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data)
+      navigate('/')
+    })
   }
 
 
@@ -106,7 +147,7 @@ const Signup = () => {
                 data-temp-mail-org='0'
               />
             </div>
-            <div>
+            {/* <div>
               <label htmlFor='image' className='block mb-2 text-sm'>
                 Select Image:
               </label>
@@ -117,7 +158,7 @@ const Signup = () => {
                 accept='image/*'
                 required
               />
-            </div>
+            </div> */}
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
                 Email address
@@ -146,6 +187,13 @@ const Signup = () => {
                 placeholder='*******'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:outline-green-500 text-gray-900'
               />
+            </div>
+            <div>
+              <select name='option' className="select w-full max-w-xs">
+                <option>Buyer</option>
+                <option>Seller</option>
+        
+              </select>
             </div>
           </div>
           <div className='space-y-2'>
