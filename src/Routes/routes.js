@@ -7,9 +7,15 @@ import Signup from '../Pages/Login/Signup'
 import Main from '../Layout/Main'
 import Catagories from '../Catagories/Catagories'
 import Iphone from '../Iphone/Iphone'
-import Modal from '../Modal/Modal'
+
 
 import PrivateRoute from '../Routes/PrivateRoute'
+import DashBoradLayout from './DashBoardLayout/DashBoradLayout'
+
+import AllUsers from '../Allusers/AllUsers'
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -27,11 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/iphone/:id',
-        element: <Iphone></Iphone>,
-      },
-      {
-        path: '/bookings',
-        element: <PrivateRoute><Modal></Modal></PrivateRoute>,
+        element: <PrivateRoute><Iphone></Iphone></PrivateRoute>,
       },
       {
         path: '/login',
@@ -47,6 +49,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:'/dashboard',
+    element:<PrivateRoute><DashBoradLayout></DashBoradLayout></PrivateRoute>,
+    children:[
+      {
+        path:'/dashboard',
+        element:<AllUsers></AllUsers>
+      }
+    ]
+  }
 ])
 
 export default router
