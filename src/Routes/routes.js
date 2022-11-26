@@ -13,6 +13,9 @@ import PrivateRoute from '../Routes/PrivateRoute'
 import DashBoradLayout from './DashBoardLayout/DashBoradLayout'
 
 import AllUsers from '../Allusers/AllUsers'
+import MyOrders from '../My Orders/MyOrders'
+import MyProducts from '../MyProducts/MyProducts'
+import AddedProducts from '../Added Products/AddedProducts'
 
 
 
@@ -54,8 +57,20 @@ const router = createBrowserRouter([
     element:<PrivateRoute><DashBoradLayout></DashBoradLayout></PrivateRoute>,
     children:[
       {
-        path:'/dashboard',
+        path:'/dashboard/allUsers',
         element:<AllUsers></AllUsers>
+      },
+      {
+        path:'/dashboard/myOrders',
+        element:<MyOrders></MyOrders>
+      },
+      {
+        path:'/dashboard/myProducts',
+        element:<MyProducts></MyProducts>
+      },
+      {
+        path:'/dashboard/addedProducts',
+        element:<AddedProducts></AddedProducts>
       }
     ]
   }

@@ -18,35 +18,15 @@ const Signup = () => {
   const handleSubmit = event => {
     event.preventDefault()
     const name = event.target.name.value
-    // const image = event.target.image.files[0]
+
     const email = event.target.email.value
     const password = event.target.email.value
     const option = event.target.option.value
 
 
-    // const userInfo = {
-    //   email, name, option
-    // }
-
-    // console.log(userInfo)
-
-    // const formData = new FormData()
-    // formData.append('image', image)
-
-
-
-    // const url = 'https://api.imgbb.com/1/upload?key=fcaa363a66659c0649b28f9ea77e9867'
-
-    // fetch(url, {
-    //   method: 'POST',
-    //   body: formData,
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-
     createUser(email, password)
       .then(result => {
-        // setAuthToken(result.user)
+ 
         console.log(result.user)
         updateUserProfile(name)
           .then(() => {
@@ -60,8 +40,7 @@ const Signup = () => {
           })
       })
       .catch(err => console.log(err))
-      // .catch(err => console.log(err))
-      // })
+
       .catch(err => console.log(err))
   }
 
@@ -82,7 +61,7 @@ const Signup = () => {
 
   const githubSubmit = () => {
     gitHubSignIn().then(result => {
-      console.log(result.user)
+      
       const user = result.user
       const option = 'buyer'
       allUsers(user.email, user.displayName, option)
@@ -102,7 +81,7 @@ const Signup = () => {
   const allUsers = (email, name , option) => {
     const users = {email, name, option}
 
-    console.log(users)
+
 
     fetch('http://localhost:5000/allusers', {
       method:'POST',
@@ -113,11 +92,23 @@ const Signup = () => {
     })
     .then(res => res.json())
     .then(data =>{
+      getUserToken(email)
       console.log(data)
-      navigate('/')
+      
     })
   }
 
+
+  const getUserToken = email =>{
+    fetch(`http://localhost:5000/jwt?email=${email}`)
+    .then(res => res.json())
+    .then(data=>{
+      if(data.accessToken){
+        localStorage.setItem('accessToken', data.accessToken)
+        navigate('/')
+      }
+    })
+  }
 
 
   return (
