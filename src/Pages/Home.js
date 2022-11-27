@@ -11,7 +11,7 @@ const Home = () => {
   const [catagories, setCatagories] = useState([])
 
 
-  console.log(catagories._id)
+
   
 
   useEffect(() => {
@@ -20,6 +20,7 @@ const Home = () => {
       .then(data => {
        
           setCatagories(data)
+          console.log(data)
           
   
       })
@@ -82,7 +83,7 @@ const Home = () => {
          <h2 className="card-title">{catagorie.name}</h2>
          <p>{catagorie.details}</p>
          <div className="card-actions mx-auto">
-        <Link to={`/iphone/${catagorie._id}`}><PrimaryButton>Sell All Product</PrimaryButton></Link>
+        <Link to={`/iphone/${catagorie.name}`}><PrimaryButton>Sell All Product</PrimaryButton></Link>
            
          </div>
        </div>
