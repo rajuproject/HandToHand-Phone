@@ -20,6 +20,28 @@ const MyProducts = () => {
             .catch((err) => toast.error(err.message))
   
     }, [email]);
+
+
+
+    
+    const handleDelete = (id) => {
+   
+        fetch(`http://localhost:5000/myProduct/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.success) {
+                    toast.success(data.message);
+                } else {
+                    toast.error(data.error);
+                }
+            }).catch(err => toast.error(err.message))
+    };
+
+
+
     return (
         <div>
         <div className='container mx-auto my-10'>
@@ -30,7 +52,7 @@ const MyProducts = () => {
                             <div>
                                 <div className="card  bg-base-100 shadow-xl">
                                     <figure><img  className=' h-48' src={myProduct.image} alt="Shoes" /></figure>
-                                    <div className="card-body w-84 h-96">
+                                    <div className="card-body w-84 ">
                                         <h2 className="card-title">Name: {myProduct.name}</h2>
                                         <h2 className="card-title">Seller Name: {myProduct.sellerName}</h2>
                                         <h2 className="card-title">Original Price: {myProduct.orginalPrice}</h2>
@@ -41,6 +63,7 @@ const MyProducts = () => {
                                         <h2 className="card-title">Description: {myProduct.description}</h2>
                                         <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
                                         <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
+                                        <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
                                         
                                         <p></p>
                                         {/* <div className="card-actions mx-auto">

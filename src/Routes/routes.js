@@ -17,6 +17,7 @@ import MyOrders from '../My Orders/MyOrders'
 import MyProducts from '../MyProducts/MyProducts'
 import AddedProducts from '../Added Products/AddedProducts'
 import AdminRoute from './AdminRoute'
+import Blogs from '../Blogs/Blogs'
 
 
 
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />,
       },
+      {
+        path: '/blogs',
+        element:<Blogs></Blogs>
+      }
     ],
   },
   {
@@ -72,7 +77,8 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/addedProducts',
         element:<AddedProducts></AddedProducts>
-      }
+      },
+
     ]
   }
 ])

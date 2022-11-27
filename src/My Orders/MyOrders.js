@@ -24,21 +24,21 @@ const MyOrders = () => {
 
 
 
-    const handleDelete = (id) => {
+    // const handleDelete = (id) => {
    
-        fetch(`http://localhost:5000/bookings/${id}`, {
-            method: "DELETE",
-        })
-            .then(res => res.json())
-            .then(data => {
+    //     fetch(`http://localhost:5000/bookings/${id}`, {
+    //         method: "DELETE",
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
 
-                if (data.success) {
-                    toast.success(data.message);
-                } else {
-                    toast.error(data.error);
-                }
-            }).catch(err => toast.error(err.message))
-    };
+    //             if (data.success) {
+    //                 toast.success(data.message);
+    //             } else {
+    //                 toast.error(data.error);
+    //             }
+    //         }).catch(err => toast.error(err.message))
+    // };
 
 
 
@@ -60,7 +60,7 @@ const MyOrders = () => {
                                             <h2 className="card-title">Location: {myProduct.location}</h2>
                                             <h2 className="card-title">Price: {myProduct.price}</h2>
                                             <h2 className="card-title">Mobile: {myProduct.phone}</h2>
-                                            <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
+                                           
 
 
                                             <p></p>

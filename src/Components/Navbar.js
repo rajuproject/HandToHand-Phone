@@ -20,6 +20,7 @@ const Navbar = () => {
         >
           <span className='ml-3 text-2xl font-bold '>HandToHand-Phone</span>
         </Link>
+        <Link to='/blogs' className='flex ml-20 items-center cursor-pointer p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100 '>Blogs</Link>
         <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
 
           {/* <Link to='/dashboard' className='flex items-center cursor-pointer p-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100 '>Dashboard</Link> */}
