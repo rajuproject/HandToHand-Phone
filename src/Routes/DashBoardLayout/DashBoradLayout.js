@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
+import { AuthContext } from '../../contexts/AuthProvider';
 import Footer from '../../Footer/Footer';
+import useAdmin from '../../useAdmin/useAdmin';
 
 const DashBoradLayout = () => {
+
+
+    // const {user} = useContext(AuthContext)
+
+    
+
+    // const [isAdmin] = useAdmin(user?.email)
+    
+
+
     return (
         <div>
             <Navbar></Navbar>
@@ -11,9 +23,10 @@ const DashBoradLayout = () => {
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
+                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet></Outlet>
 
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    
 
                 </div>
                 <div className="drawer-side">
@@ -27,12 +40,16 @@ const DashBoradLayout = () => {
                         <li><Link to = '/dashboard/addedProducts'>Add A Products</Link></li>
                         <li><Link to = '/dashboard/myProducts'>My Products</Link></li>
                         </div>
-                        <div>
-                        <li><Link to = '/dashboard/allUsers'>All Users</Link></li>
-                        </div>
+                        {/* {
+                            isAdmin &&  */}
+                             <div>
+                            <li><Link to = '/dashboard/allUsers'>All Users</Link></li>
+                            </div>
+                        {/* }  */}
                     </ul>
 
                 </div>
+   
             </div>
             <Footer></Footer>
         </div>

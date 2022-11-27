@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
-import { setAuthToken } from '../../Api/auth'
+
 
 
 
@@ -20,11 +20,14 @@ const Login = () => {
     event.preventDefault()
     const email = event.target.email.value
     const password = event.target.password.value
-
+    console.log(email, password)
 
 
     signin(email, password)
     .then(result =>{
+      const user = result.user
+
+     
       
       toast.success('Log in successfully..')
      
@@ -37,6 +40,7 @@ const Login = () => {
     })
 
   }
+  
 
   
   const handleGoogleSingIn = () =>{

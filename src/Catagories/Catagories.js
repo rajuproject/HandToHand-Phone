@@ -47,4 +47,4 @@ const Catagories = () => {
     );
 };
 
-export default Catagories;
+export default Catagories

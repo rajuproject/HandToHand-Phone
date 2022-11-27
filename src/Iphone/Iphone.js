@@ -56,6 +56,9 @@ const Iphone = () => {
                                             <h2 className="card-title">Location: {iphone.location}</h2>
                                             <h2 className="card-title">Used Year: {iphone.used}</h2>
                                             <h2 className="card-title">Post Time: {iphone.time}</h2>
+                                            <h2 className="card-title">Description: {iphone.description}</h2>
+                                            <h2 className="card-title">Mobile Number: {iphone.mobileNumber}</h2>
+                                            <h2 className="card-title">Product Quality: {iphone.productQuality}</h2>
                                             <p></p>
                                             <div className="card-actions mx-auto">
                                                 

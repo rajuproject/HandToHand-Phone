@@ -6,11 +6,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 // import { Toast } from 'react-toastify/dist/components'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
-import { setAuthToken } from '../../Api/auth'
+
 
 const Signup = () => {
 
-  const { createUser, updateUserProfile, loading, setLoading, signInWithGoogle, gitHubSignIn } = useContext(AuthContext)
+  const { createUser, updateUserProfile, signInWithGoogle, gitHubSignIn } = useContext(AuthContext)
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathName || '/'
