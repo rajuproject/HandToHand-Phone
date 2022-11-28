@@ -64,14 +64,20 @@ const MyProducts = () => {
                                         <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
                                         <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
                                         <h2 className="card-title">status: {myProduct.status}</h2>
+
+                                        <div className='flex justify-between'>
                                         <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
+
+                                        {
+                                            myProduct.status === 'Available'?   <> <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Advertised</button> </>: 
+                                            <> <button disabled onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Advertised</button></>
+                                            
+                                        }
                                         
+
+                                        </div>
+                                    
                                         <p></p>
-                                        {/* <div className="card-actions mx-auto">
-                                            
-                                            <label htmlFor="booking-modal"className="btn btn-primary" onClick={()=>setDetails(iphone)}>Book Now</label>
-                                            
-                                        </div> */}
                                     </div>
                                 </div>
                             </div>

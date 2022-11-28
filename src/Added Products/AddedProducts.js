@@ -60,7 +60,7 @@ const AddedProducts = () => {
         console.log(ImageData.data.display_url)
         
     //   setImage (data)
-    const status = 'Available'
+    // const status = 'Available'
 
         const addProduct ={
             image: ImageData.data.display_url,
@@ -76,7 +76,7 @@ const AddedProducts = () => {
             mobileNumber:mobileNumber,
             productQuality:productQuality,
             email:user.email,
-            status
+            status:'Available'
             
 
 

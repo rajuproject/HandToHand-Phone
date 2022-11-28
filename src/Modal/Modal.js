@@ -61,12 +61,7 @@ const Modal = ({details}) => {
         body: JSON.stringify(sold)
       }).then(res => res.json())
       .then(data => {
-        if(data.success){
-          toast.success(data.message);
-          
-        } else {
-          toast.err(data.error)
-        }
+        console.log(data)
       })
       .catch(err => toast.error(err.message))
 
