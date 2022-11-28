@@ -10,23 +10,23 @@ const Home = () => {
 
   // console.log(advertised)
 
-  // const [advertised, setAdvertised] = useState([])
+  const [advertised, setAdvertised] = useState([])
 
   // console.log(advertised.length)
 
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/advertised')
-  //     .then(res => res.json())
-  //     .then(data => {
+  useEffect(() => {
+    fetch('http://localhost:5000/advertised')
+      .then(res => res.json())
+      .then(data => {
 
-  //       setAdvertised(data)
-  //       console.log(data)
+        setAdvertised(data)
+        console.log(data)
 
 
-  //     })
-  //     .catch((err) => toast.error(err.message))
+      })
+      .catch((err) => toast.error(err.message))
 
-  // }, []);
+  }, []);
 
   // const {name, sellPrice,image,sellerName, orginalPrice, location, used, time, description, mobileNumber, productQuality} = advertised
 

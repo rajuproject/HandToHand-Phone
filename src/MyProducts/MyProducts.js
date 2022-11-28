@@ -86,6 +86,8 @@ const MyProducts = () => {
     
     const handleAdvertised = id =>{
 
+       
+
 
         fetch(`http://localhost:5000/myProduct/${id}`, {
             method: "PUT",
@@ -131,7 +133,7 @@ const MyProducts = () => {
                                         <div className='flex justify-between'>
                                         <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
                                         {/* onSubmit={handleAdvertised} */}
-{/* 
+
                                         {
                                             myProduct.status === 'Available'?   <> <button onClick={()=> setAdvertised(myProduct)} className='btn btn-accent'>Advertised</button> </>: 
                                             <> <button className='btn btn-accent' disabled>Advertised</button> </>
@@ -139,7 +141,7 @@ const MyProducts = () => {
                                         }
 
                                         <button onClick={()=> handleAdvertised(myProduct._id)} className='btn btn-accent'>advertise</button>
-                                         */}
+                                        
 
                                         </div>
                                     
