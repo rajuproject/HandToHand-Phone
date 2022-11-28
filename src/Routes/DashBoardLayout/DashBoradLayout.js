@@ -8,11 +8,11 @@ import useAdmin from '../../useAdmin/useAdmin';
 const DashBoradLayout = () => {
 
 
-    // const {user} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
     
 
-    // const [isAdmin] = useAdmin(user?.email)
+    const [isAdmin] = useAdmin(user?.email)
     
 
 
@@ -40,12 +40,12 @@ const DashBoradLayout = () => {
                         <li><Link to = '/dashboard/addedProducts'>Add A Products</Link></li>
                         <li><Link to = '/dashboard/myProducts'>My Products</Link></li>
                         </div>
-                        {/* {
-                            isAdmin &&  */}
+                        {
+                            isAdmin && 
                              <div>
                             <li><Link to = '/dashboard/allUsers'>All Users</Link></li>
                             </div>
-                        {/* }  */}
+                        } 
                     </ul>
 
                 </div>

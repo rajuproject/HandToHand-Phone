@@ -23,20 +23,20 @@ const MyProducts = () => {
 
 
    
-    fetch('http://localhost:5000/advertised', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json', 
+    // fetch('http://localhost:5000/advertised', {
+    //     method: 'POST',
+    //     headers: {
+    //         'content-type': 'application/json', 
           
-        },
-        body: JSON.stringify(advertise)
-    })
-    .then(res => res.json())
-    .then(data =>{
-        console.log(data);
+    //     },
+    //     body: JSON.stringify(advertise)
+    // })
+    // .then(res => res.json())
+    // .then(data =>{
+    //     console.log(data);
         
        
-    })
+    // })
 
 
 
@@ -44,6 +44,8 @@ const MyProducts = () => {
     const{email} = user
 
     const [myProducts, setMyProduct] = useState([])
+
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/myProduct/${email}`)
@@ -56,6 +58,9 @@ const MyProducts = () => {
             .catch((err) => toast.error(err.message))
   
     }, [email]);
+
+    // advertise get 
+
 
 
 
@@ -126,7 +131,7 @@ const MyProducts = () => {
                                         <div className='flex justify-between'>
                                         <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
                                         {/* onSubmit={handleAdvertised} */}
-
+{/* 
                                         {
                                             myProduct.status === 'Available'?   <> <button onClick={()=> setAdvertised(myProduct)} className='btn btn-accent'>Advertised</button> </>: 
                                             <> <button className='btn btn-accent' disabled>Advertised</button> </>
@@ -134,7 +139,7 @@ const MyProducts = () => {
                                         }
 
                                         <button onClick={()=> handleAdvertised(myProduct._id)} className='btn btn-accent'>advertise</button>
-                                        
+                                         */}
 
                                         </div>
                                     

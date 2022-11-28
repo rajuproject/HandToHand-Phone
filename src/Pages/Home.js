@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
-import Advertised from '../Advertised/Advertised';
+
 import PrimaryButton from '../Components/Button/PrimaryButton';
 
 
@@ -10,23 +10,23 @@ const Home = () => {
 
   // console.log(advertised)
 
-  const [advertised, setAdvertised] = useState([])
+  // const [advertised, setAdvertised] = useState([])
 
-  console.log(advertised.length)
+  // console.log(advertised.length)
 
-  useEffect(() => {
-    fetch('http://localhost:5000/advertised')
-      .then(res => res.json())
-      .then(data => {
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/advertised')
+  //     .then(res => res.json())
+  //     .then(data => {
 
-        setAdvertised(data)
-        console.log(data)
+  //       setAdvertised(data)
+  //       console.log(data)
 
 
-      })
-      .catch((err) => toast.error(err.message))
+  //     })
+  //     .catch((err) => toast.error(err.message))
 
-  }, []);
+  // }, []);
 
   // const {name, sellPrice,image,sellerName, orginalPrice, location, used, time, description, mobileNumber, productQuality} = advertised
 
@@ -99,7 +99,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
+      {/* <div>
       <div className='container mx-auto my-10'>
             <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 ">
                 {
@@ -120,19 +120,6 @@ const Home = () => {
                                         <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
                                         <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
                                         <h2 className="card-title">status: {myProduct.status}</h2>
-
-                                        {/* <div className='flex justify-between'>
-                                        <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
-                                       */}
-{/* 
-                                        {
-                                            myProduct.status === 'Available'?   <> <button onClick={()=>setAdvertised(myProduct)} className='btn btn-accent'>Advertised</button> </>: 
-                                            <> <button disabled  className='btn btn-accent'>Advertised</button></>
-                                            
-                                        } */}
-                                        
-
-                                        {/* </div> */}
                                     
                                         <p></p>
                                     </div>
@@ -143,7 +130,7 @@ const Home = () => {
                 }
             </div>
         </div>
-      </div>
+      </div> */}
       <div>
 
         <div className=' my-10'>

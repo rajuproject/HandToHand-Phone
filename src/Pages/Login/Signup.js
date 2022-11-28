@@ -20,7 +20,7 @@ const Signup = () => {
     const name = event.target.name.value
 
     const email = event.target.email.value
-    const password = event.target.email.value
+    const password = event.target.password.value
     const option = event.target.option.value
 
 
@@ -125,7 +125,7 @@ const Signup = () => {
         >
           <div className='space-y-4'>
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='name' className='block mb-2 text-sm'>
                 Name
               </label>
               <input
