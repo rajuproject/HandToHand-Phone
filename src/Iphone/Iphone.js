@@ -12,6 +12,8 @@ const Iphone = () => {
     const router = useParams();
     const { id } = router;
 
+    console.log(id)
+
     const [iphones, setIphones] = useState([])
 
     const [details, setDetails] = useState([])

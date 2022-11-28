@@ -18,6 +18,7 @@ import MyProducts from '../MyProducts/MyProducts'
 import AddedProducts from '../Added Products/AddedProducts'
 import AdminRoute from './AdminRoute'
 import Blogs from '../Blogs/Blogs'
+import Advertised from '../Advertised/Advertised'
 
 
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: '/blogs',
         element:<Blogs></Blogs>
+      },
+      {
+        path: '/advertised',
+        element:<Advertised></Advertised>
       }
     ],
   },

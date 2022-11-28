@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 const Catagories = () => {
+
+
+
+
     const [iphones, setIphones] = useState([])
-
-
 
 
 

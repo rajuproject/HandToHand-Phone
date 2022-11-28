@@ -1,42 +1,71 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
+import Advertised from '../Advertised/Advertised';
 import PrimaryButton from '../Components/Button/PrimaryButton';
 
 
 
 const Home = () => {
 
-  const Navigate = useNavigate()
-  const [catagories, setCatagories] = useState([])
+  // console.log(advertised)
 
+  const [advertised, setAdvertised] = useState([])
 
-
-  
+  console.log(advertised.length)
 
   useEffect(() => {
-    fetch('http://localhost:5000/catagories')
+    fetch('http://localhost:5000/advertised')
       .then(res => res.json())
       .then(data => {
-       
-          setCatagories(data)
-          console.log(data)
-          
-  
+
+        setAdvertised(data)
+        console.log(data)
+
+
       })
       .catch((err) => toast.error(err.message))
 
   }, []);
 
-//   const handleDetails = (id) => {
-//     Navigate(`/iphone/${id}`)
-// }
+  // const {name, sellPrice,image,sellerName, orginalPrice, location, used, time, description, mobileNumber, productQuality} = advertised
+
+
+  // console.log(name)
+
+
+
+  const Navigate = useNavigate()
+  const [catagories, setCatagories] = useState([])
+
+
+
+
+
+  useEffect(() => {
+    fetch('http://localhost:5000/catagories')
+      .then(res => res.json())
+      .then(data => {
+
+        setCatagories(data)
+        console.log(data)
+
+
+      })
+      .catch((err) => toast.error(err.message))
+
+  }, []);
+
+  //   const handleDetails = (id) => {
+  //     Navigate(`/iphone/${id}`)
+  // }
 
 
 
 
   return (
     <div className='lg:w-4/5 my-10 mx-auto'>
+      {/* <Advertised></Advertised> */}
       <div >
         <div className="carousel w-full">
           <div id="slide1" className="carousel-item relative w-full">
@@ -69,36 +98,82 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div>
+      <div className='container mx-auto my-10'>
+            <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 ">
+                {
+                    advertised.map((myProduct) => {
+                        return (
+                            <div>
+                                <div className="card  bg-base-100 shadow-xl">
+                                    <figure><img  className=' h-48' src={myProduct.image} alt="Shoes" /></figure>
+                                    <div className="card-body w-84 ">
+                                        <h2 className="card-title">Name: {myProduct.name}</h2>
+                                        <h2 className="card-title">Seller Name: {myProduct.sellerName}</h2>
+                                        <h2 className="card-title">Original Price: {myProduct.orginalPrice}</h2>
+                                        <h2 className="card-title">Sell Price: {myProduct.sellPrice}</h2>
+                                        <h2 className="card-title">Location: {myProduct.location}</h2>
+                                        <h2 className="card-title">Used Year: {myProduct.used}</h2>
+                                        <h2 className="card-title">Post Time: {myProduct.time}</h2>
+                                        <h2 className="card-title">Description: {myProduct.description}</h2>
+                                        <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
+                                        <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
+                                        <h2 className="card-title">status: {myProduct.status}</h2>
+
+                                        {/* <div className='flex justify-between'>
+                                        <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
+                                       */}
+{/* 
+                                        {
+                                            myProduct.status === 'Available'?   <> <button onClick={()=>setAdvertised(myProduct)} className='btn btn-accent'>Advertised</button> </>: 
+                                            <> <button disabled  className='btn btn-accent'>Advertised</button></>
+                                            
+                                        } */}
+                                        
+
+                                        {/* </div> */}
+                                    
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }) 
+                }
+            </div>
+        </div>
+      </div>
       <div>
 
-<div className=' my-10'>
-<div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 ">
-{
- catagories.map((catagorie)=>{
-   return(
-     <div>
-       <div className="card w-84  bg-base-100 shadow-xl">
-       <figure><img className='h-48' src={catagorie.image} alt="Shoes" /></figure>
-       <div className="card-body">
-         <h2 className="card-title">{catagorie.name}</h2>
-         <p>{catagorie.details}</p>
-         <div className="card-actions mx-auto">
-        <Link to={`/iphone/${catagorie.name}`}><PrimaryButton>Sell All Product</PrimaryButton></Link>
-           
-         </div>
-       </div>
-     </div>
-     </div>
-   )
- })
-}
-     
-   
-  
- </div>
- </div>
+        <div className=' my-10'>
+          <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 ">
+            {
+              catagories.map((catagorie) => {
+                return (
+                  <div>
+                    <div className="card w-84  bg-base-100 shadow-xl">
+                      <figure><img className='h-48' src={catagorie.image} alt="Shoes" /></figure>
+                      <div className="card-body">
+                        <h2 className="card-title">{catagorie.name}</h2>
+                        <p>{catagorie.details}</p>
+                        <div className="card-actions mx-auto">
+                          <Link to={`/iphone/${catagorie.name}`}><PrimaryButton>Sell All Product</PrimaryButton></Link>
 
-</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })
+            }
+
+
+
+          </div>
+        </div>
+
+      </div>
       <div>
         <div className="hero min-h-screen bg-base-200  my-10">
           <div className="hero-content flex-col lg:flex-row">
