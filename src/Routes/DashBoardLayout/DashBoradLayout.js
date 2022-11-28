@@ -13,6 +13,7 @@ const DashBoradLayout = () => {
     
 
     const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = useAdmin(user?.email)
     
 
 
@@ -36,10 +37,15 @@ const DashBoradLayout = () => {
                       <div>
                         <li><Link to = '/dashboard/myOrders'>My Orders</Link></li>
                         </div>
-                        <div>
-                        <li><Link to = '/dashboard/addedProducts'>Add A Products</Link></li>
-                        <li><Link to = '/dashboard/myProducts'>My Products</Link></li>
-                        </div>
+
+                        {
+                            isSeller && 
+                            <div>
+                            <li><Link to = '/dashboard/addedProducts'>Add A Products</Link></li>
+                            <li><Link to = '/dashboard/myProducts'>My Products</Link></li>
+                            </div>
+                        }
+                   
                         {
                             isAdmin && 
                              <div>

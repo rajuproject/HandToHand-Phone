@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 
 const useAdmin = email =>{
     const [isAdmin, setIsAdmin] = useState(false);
+
+    const [isSeller, setIsSeller] = useState(false)
     useEffect(() => {
 
         if(email){
@@ -10,11 +12,12 @@ const useAdmin = email =>{
             .then(data =>{
                 console.log(data)
                 setIsAdmin(data.isAdmin);
+                setIsSeller(data.isSeller)
             })
         }
     
     }, [email])
 
-    return[isAdmin]
+    return[isAdmin, isSeller]
 }
 export default useAdmin;
