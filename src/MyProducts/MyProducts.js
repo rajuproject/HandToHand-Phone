@@ -63,6 +63,7 @@ const MyProducts = () => {
                                         <h2 className="card-title">Description: {myProduct.description}</h2>
                                         <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
                                         <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
+                                        <h2 className="card-title">status: {myProduct.status}</h2>
                                         <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
                                         
                                         <p></p>

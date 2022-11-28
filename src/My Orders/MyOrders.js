@@ -49,17 +49,20 @@ const MyOrders = () => {
                 <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 ">
 
                     {
-                        myProducts.map((myProduct) => {
+                        myProducts.map((myProduct) => { console.log(myProduct)
 
                             return (
                                 <div>
                                     <div className="card  bg-base-100 shadow-xl">
+                                    <figure><img  className=' h-48' src={myProduct.image} alt="Shoes" /></figure>
                                         <div className="card-body w-84 h-84">
+
                                             <h2 className="card-title">Name: {myProduct.name}</h2>
-                                            <h2 className="card-title"> Name: {myProduct.itemName}</h2>
-                                            <h2 className="card-title">Location: {myProduct.location}</h2>
+                                            <h2 className="card-title"> Catagorie: {myProduct.itemName}</h2>
+                                           
                                             <h2 className="card-title">Price: {myProduct.price}</h2>
-                                            <h2 className="card-title">Mobile: {myProduct.phone}</h2>
+                                            
+                                            
                                            
 
 

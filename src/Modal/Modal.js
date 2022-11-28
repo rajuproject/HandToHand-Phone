@@ -1,18 +1,11 @@
 import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../contexts/AuthProvider';
 const Modal = ({details}) => {
 
-    const {name, sellPrice} = details
-
-
-
-
-    
-
+    const {name, sellPrice,image,sellerName, orginalPrice, location, used, time, description, mobileNumber, productQuality} = details
     const {user} = useContext(AuthContext)
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -26,11 +19,10 @@ const Modal = ({details}) => {
             itemName: name,
             price:sellPrice,
             phone,
-            location
+            location,
+            image
          
         }
-        console.log(booking)
-
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
@@ -44,17 +36,42 @@ const Modal = ({details}) => {
 
             if(data.acknowledged){
                 toast.success(' Your item is booked')
-         
-                
             }
             else{
                 toast.error(data.message)
             }
-
         })
-
+    }
+ const handleUpdate = id =>{
+    const sold = {
+        image,
+        name, 
+        sellerName, orginalPrice, sellPrice, location, used, time,
+        description, mobileNumber, productQuality,
+        status:'sold'
 
     }
+
+
+    fetch(`http://localhost:5000/myProduct/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(sold)
+      }).then(res => res.json())
+      .then(data => {
+        if(data.success){
+          toast.success(data.message);
+          
+        } else {
+          toast.err(data.error)
+        }
+      })
+      .catch(err => toast.error(err.message))
+
+    }
+
     return (
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -69,7 +86,7 @@ const Modal = ({details}) => {
                         <input name='email' defaultValue={user?.email} disabled type="email" placeholder="email" className="input my-2" />
                         <input name='phone' type="number" required placeholder="phone-number" className="input  my-2" />
                         <input name='location' type="text" required placeholder="Meet Location" className="input  my-2" />
-                        <button type='submit' value='Submit' className=" btn-accent input">Book now</button>
+                        <button type='submit' onClick={()=> handleUpdate(details._id) } value='Submit' className=" btn-accent input">Book now</button>
 
                     </form>
                 </div>

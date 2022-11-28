@@ -16,6 +16,8 @@ const Iphone = () => {
 
     const [details, setDetails] = useState([])
 
+    console.log(details)
+
 
 
 
@@ -44,12 +46,12 @@ const Iphone = () => {
             <div className='container mx-auto my-10'>
                 <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 ">
                     {
-                        iphones.map((iphone) => {
+                        iphones.map((iphone) => { 
                             return (
                                 <div>
                                     <div className="card  bg-base-100 shadow-xl">
                                         <figure><img  className=' h-48' src={iphone.image} alt="Shoes" /></figure>
-                                        <div className="card-body w-84 h-96">
+                                        <div className="card-body w-84 ">
                                             <h2 className="card-title">Name: {iphone.name}</h2>
                                             <h2 className="card-title">Seller Name: {iphone.sellerName}</h2>
                                             <h2 className="card-title">Original Price: {iphone.orginalPrice}</h2>

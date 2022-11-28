@@ -37,6 +37,7 @@ const AddedProducts = () => {
       const mobileNumber = event.target.mobileNumber.value
       const productCatagories = event.target.productCatagories.value
       const productQuality = event.target.productQuality.value
+    
 
         
             const image = event.target.image.files[0]
@@ -59,7 +60,7 @@ const AddedProducts = () => {
         console.log(ImageData.data.display_url)
         
     //   setImage (data)
-
+    const status = 'Available'
 
         const addProduct ={
             image: ImageData.data.display_url,
@@ -74,7 +75,9 @@ const AddedProducts = () => {
             description:description,
             mobileNumber:mobileNumber,
             productQuality:productQuality,
-            email:user.email
+            email:user.email,
+            status
+            
 
 
         }
