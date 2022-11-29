@@ -15,7 +15,11 @@ const DashBoradLayout = () => {
 
     const [isAdmin] = useAdmin(user?.email)
 
+    console.log(isAdmin)
+
     const [isSeller] = useSeller(user?.email)
+
+    console.log(isSeller)
 
 
     return (

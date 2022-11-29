@@ -133,14 +133,18 @@ const MyProducts = () => {
                                         <div className='flex justify-between'>
                                         <button onClick={()=>handleDelete(myProduct._id)} className='btn btn-accent'>Delete</button>
                                         {/* onSubmit={handleAdvertised} */}
-
+{/* 
                                         {
                                             myProduct.status === 'Available'?   <> <button onClick={()=> setAdvertised(myProduct)} className='btn btn-accent'>Advertised</button> </>: 
                                             <> <button className='btn btn-accent' disabled>Advertised</button> </>
                                             
+                                        } */}
+
+                                        {
+                                            myProduct.status === 'Available' ? <button onClick={()=> handleAdvertised(myProduct._id)} className='btn btn-accent'>advertise</button> : <button disabled onClick={()=> handleAdvertised(myProduct._id)} className='btn btn-accent'>advertise</button>
                                         }
 
-                                        <button onClick={()=> handleAdvertised(myProduct._id)} className='btn btn-accent'>advertise</button>
+                                        
                                         
 
                                         </div>

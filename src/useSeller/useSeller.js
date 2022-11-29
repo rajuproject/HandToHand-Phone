@@ -7,6 +7,7 @@ const useSeller = email =>{
     
     const [isSeller, setIsSeller] = useState(false);
 
+    console.log(isSeller)
 
     useEffect(() => {
 

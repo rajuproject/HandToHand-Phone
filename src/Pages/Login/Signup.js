@@ -81,6 +81,8 @@ const Signup = () => {
   const allUsers = (email, name , option) => {
     const users = {email, name, option}
 
+    console.log(users)
+
 
 
     fetch('https://server-side-rajuproject.vercel.app/allusers', {
@@ -138,18 +140,7 @@ const Signup = () => {
                 data-temp-mail-org='0'
               />
             </div>
-            {/* <div>
-              <label htmlFor='image' className='block mb-2 text-sm'>
-                Select Image:
-              </label>
-              <input
-                type='file'
-                id='image'
-                name='image'
-                accept='image/*'
-                required
-              />
-            </div> */}
+
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
                 Email address
