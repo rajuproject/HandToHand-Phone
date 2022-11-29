@@ -12,7 +12,7 @@ const AllUsers = () => {
 
 
   useEffect(() => {
-      fetch('http://localhost:5000/allUsers')
+      fetch('https://server-side-rajuproject.vercel.app/allUsers')
           .then(res => res.json())
           .then(data => {
 
@@ -25,7 +25,7 @@ const AllUsers = () => {
 
   const handleDelete = (id) => {
    
-    fetch(`http://localhost:5000/allUsers/${id}`, {
+    fetch(`https://server-side-rajuproject.vercel.app/allUsers/${id}`, {
         method: "DELETE",
     })
         .then(res => res.json())
@@ -45,7 +45,7 @@ const AllUsers = () => {
 // const {data: allUsers = []} = useQuery({
 //   queryKey:['allUsers'],
 //   queryFn: async() =>{
-//     const res = await fetch('http://localhost:5000/allUsers');
+//     const res = await fetch('https://server-side-rajuproject.vercel.app/allUsers');
 //     const data = await res.json();
 //     return data;
 //   }

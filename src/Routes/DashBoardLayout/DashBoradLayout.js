@@ -9,17 +9,13 @@ import useSeller from '../../useSeller/useSeller';
 const DashBoradLayout = () => {
 
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     console.log(user.email)
 
     const [isAdmin] = useAdmin(user?.email)
 
     const [isSeller] = useSeller(user?.email)
-
-
-
-    
 
 
     return (
@@ -29,42 +25,42 @@ const DashBoradLayout = () => {
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content ">
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet></Outlet>
 
-                    
+
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                      <div>
-                        <li><Link to = '/dashboard/myOrders'>My Orders</Link></li>
-                        </div>
-
-                       {
-                        isSeller && 
                         <div>
-                        <li><Link to = '/dashboard/addedProducts'>Add A Products</Link></li>
-                        <li><Link to = '/dashboard/myProducts'>My Products</Link></li>
+                            <li><Link to='/dashboard/myOrders'>My Orders</Link></li>
                         </div>
 
-
-                       }
-                           
-                   
-                   
                         {
-                            isAdmin && 
-                             <div>
-                            <li><Link to = '/dashboard/allUsers'>All Users</Link></li>
+                            isSeller &&
+                            <div>
+                                <li><Link to='/dashboard/addedProducts'>Add A Products</Link></li>
+                                <li><Link to='/dashboard/myProducts'>My Products</Link></li>
                             </div>
-                        } 
+
+
+                        }
+
+
+
+                        {
+                            isAdmin &&
+                            <div>
+                                <li><Link to='/dashboard/allUsers'>All Users</Link></li>
+                            </div>
+                        }
                     </ul>
 
                 </div>
-   
+
             </div>
             <Footer></Footer>
         </div>

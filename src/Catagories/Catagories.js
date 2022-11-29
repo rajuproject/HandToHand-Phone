@@ -11,7 +11,7 @@ const Catagories = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/catagories')
+        fetch('https://server-side-rajuproject.vercel.app/catagories')
             .then(res => res.json())
             .then(data => {
 

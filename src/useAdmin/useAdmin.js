@@ -11,7 +11,7 @@ console.log(email)
     useEffect(() => {
 
         if(email){
-            fetch(`http://localhost:5000/dashboard/allUsers/${email}`)
+            fetch(`https://server-side-rajuproject.vercel.app/dashboard/allUsers/${email}`)
             .then(res => res.json())
             .then(data =>{
                 console.log(data)

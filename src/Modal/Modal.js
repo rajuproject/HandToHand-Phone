@@ -23,7 +23,7 @@ const Modal = ({details}) => {
             image
          
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://server-side-rajuproject.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -53,7 +53,7 @@ const Modal = ({details}) => {
     }
 
 
-    fetch(`http://localhost:5000/myProduct/${id}`, {
+    fetch(`https://server-side-rajuproject.vercel.app/myProduct/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json"

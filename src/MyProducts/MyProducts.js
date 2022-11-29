@@ -23,7 +23,7 @@ const MyProducts = () => {
 
 
    
-    // fetch('http://localhost:5000/advertised', {
+    // fetch('https://server-side-rajuproject.vercel.app/advertised', {
     //     method: 'POST',
     //     headers: {
     //         'content-type': 'application/json', 
@@ -48,7 +48,7 @@ const MyProducts = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myProduct/${email}`)
+        fetch(`https://server-side-rajuproject.vercel.app/myProduct/${email}`)
             .then(res => res.json())
             .then(data => {
                 
@@ -67,7 +67,7 @@ const MyProducts = () => {
     
     const handleDelete = (id) => {
    
-        fetch(`http://localhost:5000/myProduct/${id}`, {
+        fetch(`https://server-side-rajuproject.vercel.app/myProduct/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())
@@ -89,7 +89,7 @@ const MyProducts = () => {
        
 
 
-        fetch(`http://localhost:5000/myProduct/${id}`, {
+        fetch(`https://server-side-rajuproject.vercel.app/myProduct/${id}`, {
             method: "PUT",
             headers:{
                 "content-type": "application/json"

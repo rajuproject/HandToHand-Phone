@@ -10,7 +10,7 @@ const MyOrders = () => {
     const [myProducts, setMyProduct] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookings/${email}`)
+        fetch(`https://server-side-rajuproject.vercel.app/bookings/${email}`)
             .then(res => res.json())
             .then(data => {
 
@@ -26,7 +26,7 @@ const MyOrders = () => {
 
     // const handleDelete = (id) => {
    
-    //     fetch(`http://localhost:5000/bookings/${id}`, {
+    //     fetch(`https://server-side-rajuproject.vercel.app/bookings/${id}`, {
     //         method: "DELETE",
     //     })
     //         .then(res => res.json())

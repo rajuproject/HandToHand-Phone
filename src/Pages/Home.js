@@ -15,7 +15,7 @@ const Home = () => {
   // console.log(advertised.length)
 
   useEffect(() => {
-    fetch('http://localhost:5000/advertised')
+    fetch('https://server-side-rajuproject.vercel.app/advertised')
       .then(res => res.json())
       .then(data => {
 
@@ -28,10 +28,7 @@ const Home = () => {
 
   }, []);
 
-  // const {name, sellPrice,image,sellerName, orginalPrice, location, used, time, description, mobileNumber, productQuality} = advertised
 
-
-  // console.log(name)
 
 
 
@@ -43,7 +40,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/catagories')
+    fetch('https://server-side-rajuproject.vercel.app/catagories')
       .then(res => res.json())
       .then(data => {
 
@@ -55,11 +52,6 @@ const Home = () => {
       .catch((err) => toast.error(err.message))
 
   }, []);
-
-  //   const handleDetails = (id) => {
-  //     Navigate(`/iphone/${id}`)
-  // }
-
 
 
 
@@ -99,38 +91,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div>
-      <div className='container mx-auto my-10'>
-            <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 ">
-                {
-                    advertised.map((myProduct) => {
-                        return (
-                            <div>
-                                <div className="card  bg-base-100 shadow-xl">
-                                    <figure><img  className=' h-48' src={myProduct.image} alt="Shoes" /></figure>
-                                    <div className="card-body w-84 ">
-                                        <h2 className="card-title">Name: {myProduct.name}</h2>
-                                        <h2 className="card-title">Seller Name: {myProduct.sellerName}</h2>
-                                        <h2 className="card-title">Original Price: {myProduct.orginalPrice}</h2>
-                                        <h2 className="card-title">Sell Price: {myProduct.sellPrice}</h2>
-                                        <h2 className="card-title">Location: {myProduct.location}</h2>
-                                        <h2 className="card-title">Used Year: {myProduct.used}</h2>
-                                        <h2 className="card-title">Post Time: {myProduct.time}</h2>
-                                        <h2 className="card-title">Description: {myProduct.description}</h2>
-                                        <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
-                                        <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
-                                        <h2 className="card-title">status: {myProduct.status}</h2>
-                                    
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                        )
-                    }) 
-                }
-            </div>
-        </div>
-      </div> */}
+      
       <div>
 
         <div className=' my-10'>
@@ -160,6 +121,41 @@ const Home = () => {
           </div>
         </div>
 
+      </div>
+      <div>
+      <div className='container mx-auto my-10'>
+        <div className='mx-auto'>
+          <h2 className='text-2xl'> Advertised..</h2>
+        </div>
+            <div className=" gap-10 mx-auto px-4 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 ">
+                {
+                    advertised.map((myProduct) => {
+                        return (
+                            <div>
+                                <div className="card  bg-base-100 shadow-xl">
+                                    <figure><img  className=' h-48' src={myProduct.image} alt="Shoes" /></figure>
+                                    <div className="card-body w-84 ">
+                                        <h2 className="card-title">Name: {myProduct.name}</h2>
+                                        <h2 className="card-title">Seller Name: {myProduct.sellerName}</h2>
+                                        <h2 className="card-title">Original Price: {myProduct.orginalPrice}</h2>
+                                        <h2 className="card-title">Sell Price: {myProduct.sellPrice}</h2>
+                                        <h2 className="card-title">Location: {myProduct.location}</h2>
+                                        <h2 className="card-title">Used Year: {myProduct.used}</h2>
+                                        <h2 className="card-title">Post Time: {myProduct.time}</h2>
+                                        <h2 className="card-title">Description: {myProduct.description}</h2>
+                                        <h2 className="card-title">Mobile: {myProduct.mobileNumber}</h2>
+                                        <h2 className="card-title">Product Quality: {myProduct.productQuality}</h2>
+                                        
+                                    
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }) 
+                }
+            </div>
+        </div>
       </div>
       <div>
         <div className="hero min-h-screen bg-base-200  my-10">

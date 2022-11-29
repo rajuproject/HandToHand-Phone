@@ -84,7 +84,7 @@ const AddedProducts = () => {
         console.log(addProduct)
 
 
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://server-side-rajuproject.vercel.app/addProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json', 

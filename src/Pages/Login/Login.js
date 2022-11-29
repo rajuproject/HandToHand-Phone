@@ -78,7 +78,7 @@ const Login = () => {
 
     console.log(users)
 
-    fetch('http://localhost:5000/allusers', {
+    fetch('https://server-side-rajuproject.vercel.app/allusers', {
       method:'POST',
       headers:{
         'content-type': 'application/json'

@@ -83,7 +83,7 @@ const Signup = () => {
 
 
 
-    fetch('http://localhost:5000/allusers', {
+    fetch('https://server-side-rajuproject.vercel.app/allusers', {
       method:'POST',
       headers:{
         'content-type': 'application/json'
@@ -100,7 +100,7 @@ const Signup = () => {
 
 
   const getUserToken = email =>{
-    fetch(`http://localhost:5000/jwt?email=${email}`)
+    fetch(`https://server-side-rajuproject.vercel.app/jwt?email=${email}`)
     .then(res => res.json())
     .then(data=>{
       if(data.accessToken){
